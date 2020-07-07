@@ -1,0 +1,88 @@
+// Mixins
+
+@mixin transition ($property, $duration, $timing: linear, $delay: 0) {
+  -webkit-transition-delay: $delay!important;
+  -webkit-transition-duration: $duration!important;
+  -webkit-transition-property: $property!important;
+  -webkit-transition-timing-function: $timing!important;
+  
+  -moz-transition-delay: $delay!important;
+  -moz-transition-duration: $duration!important;
+  -moz-transition-property: $property!important;
+  -moz-transition-timing-function: $timing!important;
+  
+  -ms-transition-delay: $delay!important;
+  -ms-transition-duration: $duration!important;
+  -ms-transition-property: $property!important;
+  -ms-transition-timing-function: $timing!important;
+  
+  -o-transition-delay: $delay!important;
+  -o-transition-duration: $duration!important;
+  -o-transition-property: $property!important;
+  -o-transition-timing-function: $timing!important;
+  
+  transition-delay: $delay!important;
+  transition-duration: $duration!important;
+  transition-property: $property!important;
+  transition-timing-function: $timing!important;
+}
+
+@mixin keyframe($name) {
+    @-webkit-keyframes #{$name} {
+      @content; 
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+    @-o-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    } 
+}
+
+@mixin animation ($animation, $duration, $timing: linear, $delay: 0, $iteration: infinite, $direction: forward, $fillmode: fowards) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-direction: $direction;
+    -webkit-animation-timing-function: $timing;
+    -webkit-animation-iteration-count: $iteration;
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-direction: $direction;
+    -moz-animation-timing-function: $timing;
+    -moz-animation-iteration-count: $iteration;
+
+    -o-animation-delay: $delay;
+    -o-animation-duration: $duration;
+    -o-animation-name: $animation;
+    -o-animation-fill-mode: $fillmode;
+    -o-animation-direction: $direction;
+    -o-animation-timing-function: $timing;
+    -o-animation-iteration-count: $iteration;
+
+    -ms-animation-delay: $delay;
+    -ms-animation-duration: $duration;
+    -ms-animation-name: $animation;
+    -ms-animation-fill-mode: $fillmode;
+    -ms-animation-direction: $direction;
+    -ms-animation-timing-function: $timing;
+    -ms-animation-iteration-count: $iteration;
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+    animation-timing-function: $timing;
+    animation-iteration-count: $iteration;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="white">
     <v-app-bar app height="120" elevate-on-scroll tag="header" color="white">
       <v-container>
         <v-row>
@@ -41,7 +41,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <section v-if="!loading" class="mt-6">
+        <section v-if="!loading" class="mt-2">
           <my-list-item v-for="(item, i) in items" :key="i" :item="item" />
           <my-pagination-widget 
             v-if="meta.total > items.length" 
@@ -110,7 +110,8 @@ import { mapGetters } from 'vuex'
 import MyListItem from '@/components/snippet/ListItem.vue'
 import MyPaginationWidget from '@/components/common/MyPaginationWidget.vue'
 import {
-  SET_MANY
+  SET_MANY,
+  SET_KEYWORD
 } from '@/store/mutations.type'
 import {
   FETCH_RESULTS
@@ -133,13 +134,16 @@ export default {
     return {
       page: 1,
       limit: 30,
-      keyword: '',
       dirty: false,
       loading: false,
     }
   },
   computed: {
-    ...mapGetters('search', { items: 'results', meta: 'metaResults' })
+    ...mapGetters('search', { items: 'results', meta: 'metaResults' }),
+    keyword: {
+      get() { return this.$store.getters['search/keyword'] },
+      set(v) { this.$store.commit(`search/${SET_KEYWORD}`, v) }
+    }
   },
   watch: {
     page () {

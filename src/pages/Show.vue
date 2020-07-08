@@ -2,7 +2,20 @@
   <v-main class="mt-6">
     <v-container>
       <section v-if="snippet">
-        <h2 class="display-1 dark-grey--text mt-n3">{{ snippet.title }}</h2>
+        <h2 class="display-1 dark-grey--text mt-n3 d-flex align-center">
+          <a href="#" @click.prevent="home">
+            <v-avatar size="48" class="mr-4">
+              <v-img class="deep-orange" src="https://snippetify.com/apple-touch-icon.png" alt="Snippetify logo">
+                <template v-slot:placeholder>
+                  <v-row class="fill-height ma-0" align="center" justify="center">
+                    <span style="color:#fff" class="body-1 font-weight-bold text-uppercase">{S}</span>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-avatar>
+          </a>
+          {{ snippet.title }}
+        </h2>
         <div class="mt-3 mb-4 d-flex align-center px-1">
           <p class="ma-0 pa-0">
             <span
@@ -188,11 +201,12 @@
 </template>
 
 <style lang="scss">
-.code-btn-container{
+.code-btn-container {
     position: absolute;
-    bottom: 16px;
+    bottom: -20px;
     right: 16px;
-}
+    z-index: 3;
+  }
 .code-lang-container{
     position: absolute;
     top: 8px;
@@ -208,6 +222,8 @@ import MarkdownViewer from '@/components/editor/MarkdownViewer'
 import MyUserInfoWidget from '@/components/user/MyUserInfoWidget'
 import MyTagListItemWidget from '@/components/tag/MyTagListItemWidget'
 import {
+  SET_ONE,
+  SET_PAGE,
   INCREMENT_FAVORITE,
   DECREMENT_FAVORITE 
 } from "@/store/mutations.type"
@@ -285,6 +301,10 @@ export default {
     },
     copy() {
       this.vscode.postMessage({ action: "copy", snippet: this.snippet })
+    },
+    home () {
+      this.$store.commit(SET_PAGE, 'index')
+      this.$store.commit(`snippet/${SET_ONE}`, {})
     }
   }
 }

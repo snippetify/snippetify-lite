@@ -1,5 +1,5 @@
 <template>
-  <v-card :class="{ 'mb-12': marginBotton }" class="pt-6 pb-1" :flat="flat">
+  <v-card :class="{ 'mb-8': marginBotton }" class="pt-6 pb-1" :flat="flat">
     <div class="px-6">
       <v-row class="d-flex align-center">
         <v-col cols="9" class="py-0">
@@ -183,6 +183,13 @@ import { mapGetters } from 'vuex'
 import Highlight from 'highlight.js/lib/index'
 import MyUserInfoWidget from '@/components/user/MyUserInfoWidget'
 import MyTagListItemWidget from '@/components/tag/MyTagListItemWidget'
+import {
+  SET_ONE,
+  SET_PAGE
+} from '@/store/mutations.type'
+import {
+  FETCH_ONE
+} from '@/store/actions.type'
 
 export default {
   components: {
@@ -221,7 +228,9 @@ export default {
       this.vscode.postMessage({ action: 'copy', snippet: this.item })
     },
     show () {
-      this.vscode.postMessage({ action: 'show', snippet: this.item })
+      this.$store.commit(SET_PAGE, 'show')
+      this.$store.commit(`snippet/${SET_ONE}`, this.item || {})
+      this.$store.dispatch(`snippet/${FETCH_ONE}`, this.item.id)
     }
   }
 }

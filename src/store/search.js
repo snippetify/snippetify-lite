@@ -1,6 +1,7 @@
 import {
   SET_MANY,
   SET_META,
+  SET_KEYWORD,
   SET_RESULTS,
   SET_META_RESULTS
 } from './mutations.type'
@@ -13,8 +14,9 @@ import { utils } from '../plugins/vue-utils'
 
 // Initial state
 const initialState = {
-  items: [],
   meta: {},
+  items: [],
+  keyword: '',
   results: [],
   metaResults: {}
 }
@@ -51,6 +53,9 @@ export const mutations = {
   [SET_RESULTS] (state, items) {
     state.results = items
   },
+  [SET_KEYWORD] (state, item) {
+    state.keyword = item
+  },
   [SET_META_RESULTS] (state, item) {
     state.metaResults = item
   }
@@ -63,6 +68,9 @@ export const getters = {
   },
   meta: (state) => {
     return state.meta
+  },
+  keyword: (state) => {
+    return state.keyword
   },
   results: (state) => {
     return state.results

@@ -72,7 +72,7 @@
           </v-icon>
           <span v-else class="caption font-weight-bold">{{ (data.item.name || '').charAt(0).toUpperCase() }}</span>
         </v-avatar>
-        <span v-text="data.item.name" />
+        <span class="text-capitalize" v-text="data.item.name" />
         <v-icon v-if="data.item.trusted" x-small color="white" class="ml-2">
           mdi-shield-check
         </v-icon>

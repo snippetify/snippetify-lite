@@ -25,6 +25,7 @@
               solo
               outlined
               flat
+              autofocus="on"
               autocomplete="off"
               hide-details="auto"
               :persistent-hint="false"
@@ -92,7 +93,7 @@
     </v-card-text>
     <v-card-text v-else class="pt-6 pb-6 text-center">
       <p>
-        <v-icon x-large class="pa-6 green green--text lighten-5 rounded">
+        <v-icon x-large class="pa-6 green green--text lighten-5 rounded-circle">
           mdi-check-circle-outline
         </v-icon>
       </p>
@@ -141,6 +142,9 @@ import MyTagInputWidget from '@/components/tag/MyTagInputWidget.vue'
 import CodeMirrorEditor from '@/components/editor/CodeMirrorEditor.vue'
 import { required } from 'vee-validate/dist/rules'
 import { extend } from 'vee-validate'
+import {
+  SET_ONE
+} from '@/store/mutations.type'
 import {
   SAVE
 } from '@/store/actions.type'
@@ -201,12 +205,19 @@ export default {
         this.$store
           .dispatch(`snippet/${SAVE}`, this.getPayload())
           .then(() => {
-            this.done = true
+            // this.done = true
+            this.$store.commit(`snippet/${SET_ONE}`, {})
             this.$refs.form.reset()
-            this._.delay(() => {
-              this.done = false
-              this.close()
-            }, 2000)
+            // this._.delay(() => {
+            //   this.done = false
+            //   // this.close()
+            // }, 2000)
+            this.vscode.postMessage({
+              action: "alert",
+              type: "success",
+              context: 'saved',
+              message: this.$t("snippet_saved_")
+            })
           })
           .catch((e) => {
             this.errors = e.response.data.errors || {}

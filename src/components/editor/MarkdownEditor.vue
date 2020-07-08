@@ -66,8 +66,8 @@ export default {
     return {
       hasState: false,
       options: {
-        usageStatistics: true,
         hideModeSwitch: false,
+        usageStatistics: false,
         minHeight: this.minHeight,
         placeholder: this.placeholder
       }

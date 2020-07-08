@@ -16,6 +16,8 @@
                 full-width
                 large
                 outlined
+                autofocus="on"
+                autocomplete="off"
                 flat
                 rounded
                 solo
@@ -67,7 +69,9 @@
               <template v-if="dirty">
                 {{ $t('try_different_keyword') }}
               </template>
-              <template v-else>{{ $t('search_hint_more') }}</template>
+              <template v-else>
+                <span v-html="$t('search_hint_more')" />
+              </template>
             </p>
           </div>
         </div>

@@ -187,7 +187,13 @@ export default {
   acknowledgement: 'Acknowledgement',
   launch_challenge: 'Launch Challenge',
   search_hint: 'Enter some keywords and press enter to find your snippets',
-  search_hint_more: 'Tips, use those keys: @username to search in user repo. @me to search in your repo #tag to search for specific tag',
+  search_hint_more: `<b>Tips</b> <br> Use the keywords below for advanced searches: 
+    <br> @me search in your repo
+    <br> @username search in user repo 
+    <br> #tag search for specific tag
+    <br> :trusted positive boolean
+    <br> :!deprecated negative boolean
+    <br> :type[wiki, personal] specific type`,
   by: 'by',
   link: 'Link',
   menu: 'Menu',
@@ -296,7 +302,7 @@ export default {
   snippet_added_from_favorite: 'Snippet added to favorites!',
   snippet_removed_from_favorite: 'Snippet removed from favorites!',
   sorry_anything_found: 'Sorry! We couldn\'t find anything for',
-  try_different_keyword: 'try different or less specific keywords',
+  try_different_keyword: 'Try different or less specific keywords',
   dont_show_in_profile: 'Don\'t show in my profile',
   save_informations: 'Save information',
   save_snippet_: 'Save snippet',
@@ -703,6 +709,7 @@ export default {
   see_synonyms: 'See synonyms',
   snippet_saved: 'Snippet saved',
   item_saved: '{item} saved successfully!',
+  snippet_saved_: 'Snippet saved successfully!',
   item_updated: '{item} updated successfully!',
   item_changed: '{item} changed successfully!',
   item_added: '{item} added successfully!',

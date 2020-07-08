@@ -98,19 +98,19 @@
             <div class="code-btn-container">
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
-                  <v-btn v-on="on" fab small class="deep-orange deep-orange--text lighten-5 mr-2" @click="save">
+                  <v-btn v-on="on" fab small color="deep-orange lighten-5 deep-orange--text" @click="copy">
+                    <v-icon small>mdi-menu-open</v-icon>
+                  </v-btn>
+                </template>
+                <span>{{ $t('use_now') }}</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn v-on="on" fab small class="deep-orange deep-orange--text lighten-5 ml-4" @click="save">
                     <v-icon small>mdi-checkbox-marked-circle-outline</v-icon>
                   </v-btn>
                 </template>
                 <span>{{ $t('add_to_collection') }}</span>
-              </v-tooltip>
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
-                  <v-btn v-on="on" fab small color="deep-orange lighten-5 deep-orange--text" @click="copy">
-                    <v-icon small>mdi-content-copy</v-icon>
-                  </v-btn>
-                </template>
-                <span>{{ $t('use_now') }}</span>
               </v-tooltip>
             </div>
           </div>

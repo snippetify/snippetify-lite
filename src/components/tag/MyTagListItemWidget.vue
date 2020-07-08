@@ -12,7 +12,7 @@
         mdi-pound
       </v-icon>
     </v-avatar>
-    {{ item.name }}
+    <span class="text-capitalize">{{ item.name }}</span>
     <v-icon v-if="item.trusted" small color="green" class="ml-2">
       mdi-shield-check
     </v-icon>

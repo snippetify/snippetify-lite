@@ -16,7 +16,7 @@
                 full-width
                 large
                 outlined
-                autofocus="on"
+                :autofocus="true"
                 autocomplete="off"
                 flat
                 rounded

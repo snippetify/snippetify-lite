@@ -104,7 +104,7 @@
                 </template>
                 <span>{{ $t('use_now') }}</span>
               </v-tooltip>
-              <v-tooltip bottom>
+              <v-tooltip bottom v-if="authenticated && authUser.is_premium">
                 <template v-slot:activator="{ on }">
                   <v-btn v-on="on" fab small class="deep-orange deep-orange--text lighten-5 ml-4" @click="save">
                     <v-icon small>mdi-checkbox-marked-circle-outline</v-icon>
@@ -211,7 +211,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['vscode'])
+    ...mapGetters(['vscode']),
+    ...mapGetters('user', ['authUser']),
+    ...mapGetters('auth', ['authenticated']),
   },
   methods: {
     parseLang (v) {

@@ -1,6 +1,9 @@
-# snipt
+# Snippetify Lite for extensions
+
+This is a lite version of Snippetify for extensions which allows you to search and save snippets.
 
 ## Project setup
+
 ```
 npm install
 ```
